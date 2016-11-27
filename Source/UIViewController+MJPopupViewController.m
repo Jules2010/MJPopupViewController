@@ -51,6 +51,11 @@ static void * const keypath = (void*)&keypath;
     
 }
 
+- (void)setNewPopupSize:(CGSize)size {
+    UIView *popupView = [[self topView] viewWithTag:kMJPopupViewTag];
+    [popupView setFrame:CGRectMake(10, 10, size.width, size.height)];
+}
+
 - (void)presentPopupViewController:(UIViewController*)popupViewController animationType:(MJPopupViewAnimation)animationType dismissed:(void(^)(void))dismissed
 {
     self.mj_popupViewController = popupViewController;
