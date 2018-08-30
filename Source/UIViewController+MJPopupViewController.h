@@ -10,7 +10,8 @@
 
 @class MJPopupBackgroundView;
 
-typedef enum {
+typedef enum
+{
     MJPopupViewAnimationFade = 0,
     MJPopupViewAnimationSlideBottomTop = 1,
     MJPopupViewAnimationSlideBottomBottom,
@@ -20,16 +21,21 @@ typedef enum {
     MJPopupViewAnimationSlideLeftRight,
     MJPopupViewAnimationSlideRightLeft,
     MJPopupViewAnimationSlideRightRight,
+    MJPopupViewAnimationSlideBounce,
 } MJPopupViewAnimation;
 
 @interface UIViewController (MJPopupViewController)
 
 @property (nonatomic, retain) UIViewController *mj_popupViewController;
 @property (nonatomic, retain) MJPopupBackgroundView *mj_popupBackgroundView;
+@property (nonatomic, retain) UIImage *mj_BackgroundSource;
 
-- (void)presentPopupViewController:(UIViewController*)popupViewController animationType:(MJPopupViewAnimation)animationType;
-- (void)presentPopupViewController:(UIViewController*)popupViewController animationType:(MJPopupViewAnimation)animationType dismissed:(void(^)(void))dismissed;
+- (void)presentPopupViewController:(UIViewController*)popupViewController backgroundSource:(UIImage*)backgroundSource animationType:(MJPopupViewAnimation)animationType;
+
+- (void)presentPopupViewController:(UIViewController*)popupViewController backgroundSource:(UIImage*)backgroundSource animationType:(MJPopupViewAnimation)animationType dismissed:(void(^)(void))dismissed;
+
 - (void)dismissPopupViewControllerWithanimationType:(MJPopupViewAnimation)animationType;
-- (void)setNewPopupSize:(CGSize)size;
+
+- (void)setNewPopupSize:(CGSize)size; // JM ADDED 2016/11/27
 
 @end
